@@ -2,170 +2,134 @@
 <html lang="bn" dir="ltr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Fiqh Library · ফিকহ গ্রন্থাগার · مكتبة الفقه</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f3d3a">
+<title>ফিকহ গ্রন্থাগার</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600&family=Noto+Serif+Bengali:wght@600;800&family=Noto+Naskh+Arabic:wght@400;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f3f6f4;--surface:#fff;--ink:#17231f;--muted:#5b6b65;--line:#d3dcd7;--pine:#0f3d3a;--brass:#a97c1f;--on-pine:#f3f6f4;color-scheme:light}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1513;--surface:#16211e;--ink:#e8efec;--muted:#9fb1aa;--line:#2a3a35;--pine:#7fc4b8;--brass:#d9a940;--on-pine:#0e1513;color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#0e1513;--surface:#16211e;--ink:#e8efec;--muted:#9fb1aa;--line:#2a3a35;--pine:#7fc4b8;--brass:#d9a940;--on-pine:#0e1513;color-scheme:dark}
+:root{--fs:17px;--bg:#f3f6f4;--sf:#fff;--ink:#17231f;--mu:#5b6b65;--ln:#d3dcd7;--pr:#0f3d3a;--br:#a97c1f;--on:#f3f6f4}
+[data-theme=dark]{--bg:#0e1513;--sf:#16211e;--ink:#e8efec;--mu:#9fb1aa;--ln:#2a3a35;--pr:#7fc4b8;--br:#d9a940;--on:#0e1513}
+[data-theme=sepia]{--bg:#f1e6d0;--sf:#faf3e3;--ink:#3b2f1e;--mu:#7a6a50;--ln:#d9c9a6;--pr:#7a4b1e;--br:#b07a1e;--on:#fbf4e6}
+[data-theme=green]{--bg:#e7f1e8;--sf:#f6fbf6;--ink:#14301f;--mu:#4d6b57;--ln:#bcd5c1;--pr:#1f6b3a;--br:#9a7b1a;--on:#f6fbf6}
+[data-theme=night]{--bg:#0c1424;--sf:#14213a;--ink:#e6ecf8;--mu:#9fb0d0;--ln:#26375c;--pr:#8fb4ff;--br:#e0b45a;--on:#0c1424}
 *{box-sizing:border-box}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:"Hind Siliguri",system-ui,sans-serif;font-size:17px;line-height:1.7;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-html[lang="ar"] body{font-family:"Noto Naskh Arabic","Amiri",serif;font-size:19px;line-height:1.9}
-.wrap{max-width:880px;margin:0 auto;padding:0 20px}
-header{padding:28px 0 8px}
-.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.brand{font-size:15px;color:var(--muted);margin:0}
-.tools{display:flex;gap:8px;flex-wrap:wrap}
-.pill{background:none;border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:2px 14px;font:inherit;font-size:14px;cursor:pointer}
-.pill[aria-pressed="true"]{background:var(--pine);color:var(--on-pine);border-color:var(--pine)}
-h1{font-family:"Noto Serif Bengali",serif;font-weight:800;font-size:clamp(32px,7vw,54px);line-height:1.3;margin:18px 0 8px;color:var(--pine)}
-html[lang="ar"] h1{font-family:"Amiri",serif;font-weight:700}
-html[lang="en"] h1{font-family:Georgia,"Times New Roman",serif;font-weight:700;line-height:1.15}
-.lead{margin:0 0 24px;color:var(--muted);max-width:56ch}
-.search{display:flex;border:2px solid var(--pine);border-radius:12px;background:var(--surface);overflow:hidden}
-.search input{flex:1;border:0;background:none;color:var(--ink);font:inherit;font-size:19px;padding:14px 16px;min-width:0}
-.search input:focus{outline:none}
-.search:focus-within{box-shadow:0 0 0 3px color-mix(in srgb,var(--brass) 45%,transparent)}
-.filters{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 6px}
-.count{color:var(--muted);font-size:15px;margin:14px 0}
-.list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
-.book{display:grid;grid-template-columns:10px 1fr;background:var(--surface);border:1px solid var(--line);border-radius:6px;overflow:hidden}
-.spine{background:var(--c)}
-.body{padding:14px 18px;display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-between;align-items:center}
-.info{flex:1 1 320px;min-width:0}
-.book h2{font-size:20px;margin:0;line-height:1.5;font-weight:600}
-.orig{font-family:"Amiri",serif;font-size:21px;color:var(--brass);display:block;line-height:1.5}
-.meta{font-size:15px;color:var(--muted);margin:2px 0 0}
-.acts{display:flex;gap:8px}
-.btn{display:inline-block;text-decoration:none;border-radius:8px;padding:6px 16px;font-size:15px;font-weight:500;border:1px solid var(--pine);color:var(--pine)}
-.btn.main{background:var(--pine);color:var(--on-pine)}
-.pill:focus-visible,.btn:focus-visible{outline:3px solid var(--brass);outline-offset:2px}
-.soon{font-size:15px;color:var(--muted)}
-.empty{padding:40px 0;text-align:center;color:var(--muted)}
-footer{margin:48px 0 32px;padding-top:20px;border-top:1px solid var(--line);font-size:15px;color:var(--muted)}
-footer a{color:var(--pine)}
+html{font-size:var(--fs)}
+body{margin:0;min-height:100vh;background:var(--bg);color:var(--ink);font-family:"Hind Siliguri",system-ui,sans-serif;line-height:1.7;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+html[lang=ar] body{font-family:"Noto Naskh Arabic","Amiri",serif;line-height:1.95}
+.bg{position:fixed;inset:0;z-index:-2;display:grid;place-items:center;overflow:hidden;pointer-events:none}
+.bg::before{content:attr(data-w);font-family:Amiri,serif;font-size:min(46vw,400px);color:var(--pr);opacity:.07;line-height:1;white-space:nowrap}
+.pat{position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cg fill='none' stroke='%23888' stroke-opacity='.2'%3E%3Crect x='20' y='20' width='40' height='40'/%3E%3Crect x='20' y='20' width='40' height='40' transform='rotate(45 40 40)'/%3E%3Ccircle cx='40' cy='40' r='6'/%3E%3C/g%3E%3C/svg%3E")}
+.hd,main{max-width:960px;margin:0 auto;padding:.8rem 1.2rem}
+.hd{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;justify-content:space-between}
+.logo{font-family:"Noto Serif Bengali",Amiri,serif;font-weight:800;color:var(--pr);text-decoration:none;font-size:1.1rem}
+.ct{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center}
+.pl,select{background:var(--sf);border:1px solid var(--ln);color:var(--ink);border-radius:999px;padding:.1rem .8rem;font:inherit;font-size:.85rem;cursor:pointer}
+.pl[aria-pressed=true]{background:var(--pr);color:var(--on);border-color:var(--pr)}
+.us{font-size:.85rem;color:var(--mu)}
+h1{font-family:"Noto Serif Bengali",serif;font-weight:800;color:var(--pr);font-size:clamp(1.9rem,6vw,3rem);line-height:1.3;margin:.4rem 0}
+html[lang=ar] h1{font-family:Amiri,serif}
+.hero{text-align:center;padding:2rem 0;max-width:640px;margin:0 auto}
+.lead{font-size:1.1rem}
+.who{margin:1.5rem 0;padding:1rem;border:1px solid var(--ln);border-radius:.8rem;background:var(--sf);font-size:.95rem;color:var(--mu)}
+.who b{color:var(--ink);font-size:1.15rem}
+.note,.mu{color:var(--mu);font-size:.9rem}
+.btn{display:inline-block;background:var(--pr);color:var(--on);border:1px solid var(--pr);border-radius:.6rem;padding:.55rem 1.6rem;font:inherit;font-weight:600;cursor:pointer;text-decoration:none;margin:.3rem}
+.btn.alt{background:none;color:var(--pr)}
+.cr{font-size:.9rem;color:var(--mu);margin:.5rem 0 1rem}.cr a{color:var(--pr)}
+h2{font-size:1.5rem;margin:.2rem 0 1rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.9rem}
+.card{display:block;text-decoration:none;color:inherit;background:var(--sf);border:1px solid var(--ln);border-top:.35rem solid var(--br);border-radius:.8rem;padding:1.1rem 1.2rem}
+.card:hover{border-color:var(--pr)}
+.card b{font-size:1.15rem;display:block}
+.chip{display:inline-block;font-size:.8rem;background:var(--bg);border:1px solid var(--ln);border-radius:999px;padding:0 .7rem;margin:.3rem .3rem 0 0;color:var(--mu)}
+html[dir=rtl] .chip{margin:.3rem 0 0 .3rem}
+.bk{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem;align-items:center;background:var(--sf);border:1px solid var(--ln);border-radius:.6rem;padding:.8rem 1rem;margin-bottom:.6rem}
+.bk .btn{padding:.2rem 1rem;font-size:.9rem;margin:0 .2rem}
+a:focus-visible,button:focus-visible,select:focus-visible{outline:3px solid var(--br);outline-offset:2px}
 </style>
 </head>
 <body>
-<div class="wrap">
-<header>
-  <div class="top">
-    <p class="brand" id="brand"></p>
-    <div class="tools">
-      <span id="langs" role="group" aria-label="Language" style="display:flex;gap:8px"></span>
-      <button class="pill" id="theme" type="button"></button>
-    </div>
-  </div>
-  <h1 id="h1"></h1>
-  <p class="lead" id="lead"></p>
-  <label class="search">
-    <span id="qlabel" style="position:absolute;left:-9999px"></span>
-    <input id="q" type="search" autocomplete="off">
-  </label>
-  <div class="filters" id="years" role="group"></div>
-  <div class="filters" id="subjects" role="group"></div>
-</header>
-<main>
-  <p class="count" id="count" aria-live="polite"></p>
-  <ul class="list" id="list"></ul>
-</main>
-<footer><span id="foot"></span> <a href="mailto:your-email@example.com">your-email@example.com</a></footer>
-</div>
+<div class="bg" id="bg"></div><div class="pat"></div>
+<header id="top"></header>
+<main id="app"></main>
+<script src="data.js"></script>
 <script>
-/* ===== ইন্টারফেসের লেখা (তিন ভাষা) ===== */
-const UI = {
-  bn:{name:"বাংলা",dir:"ltr",locale:"bn-BD",brand:"ইসলামী আরবি বিশ্ববিদ্যালয় · আল-ফিকহ অ্যান্ড ইসলামিক স্টাডিজ",h1:"বিভাগের সব বই, এক জায়গায়",lead:"নাম, লেখক বা বিষয় লিখে খুঁজুন। অনলাইনে পড়ুন অথবা ডাউনলোড করে নিন। কোনো নিবন্ধন লাগবে না।",ph:"যেমন: হিদায়া, আহাদীসুল আহকাম…",all:"সব",years:"বর্ষ",subjects:"বিষয়",found:n=>n+"টি বই পাওয়া গেছে",none:"কোনো বই মেলেনি। অন্য শব্দ দিয়ে খুঁজুন।",read:"অনলাইনে পড়ুন",dl:"ডাউনলোড",soon:"শীঘ্রই আসছে",dark:"অন্ধকার মোড",light:"আলো মোড",foot:"বই যোগ করতে বা কোনো বই সরানোর অনুরোধ জানাতে যোগাযোগ করুন:"},
-  ar:{name:"العربية",dir:"rtl",locale:"ar",brand:"الجامعة الإسلامية العربية · قسم الفقه والدراسات الإسلامية",h1:"كتب القسم كلها في مكان واحد",lead:"ابحث بالعنوان أو المؤلف أو المادة، ثم اقرأ الكتاب على الإنترنت أو حمّله. لا حاجة إلى التسجيل.",ph:"مثال: الهداية، أحاديث الأحكام…",all:"الكل",years:"السنة",subjects:"المادة",found:n=>"تم العثور على "+n+" كتاب",none:"لم يُعثر على أي كتاب. جرّب كلمة أخرى.",read:"اقرأ على الإنترنت",dl:"تحميل",soon:"قريبًا",dark:"الوضع الداكن",light:"الوضع الفاتح",foot:"لإضافة كتاب أو طلب حذف كتاب، تواصل معنا:"},
-  en:{name:"English",dir:"ltr",locale:"en",brand:"Islamic Arabic University · Al-Fiqh & Islamic Studies",h1:"Every book of the department, in one place",lead:"Search by title, author or subject. Read online or download. No sign-up needed.",ph:"For example: Hidaya, Ahadith al-Ahkam…",all:"All",years:"Year",subjects:"Subject",found:n=>n+(n===1?" book found":" books found"),none:"No books found. Try a different word.",read:"Read online",dl:"Download",soon:"Coming soon",dark:"Dark mode",light:"Light mode",foot:"To add a book or request a removal, contact:"}
+const UI={
+bn:{t:"ফিকহ ও ইসলামিক স্টাডিজ গ্রন্থাগার",hi:"স্বাগতম!",msg:"এই গ্রন্থাগারে বই পড়ার জন্য এবং বিশ্ববিদ্যালয়ের কোর্স অনুযায়ী পাঠ্যবই এক জায়গায় পেতে আপনাকে আন্তরিকভাবে আমন্ত্রণ জানাই। জ্ঞান অন্বেষণের এই যাত্রা শুভ হোক।",name:"হাসান আহমদ",dept:"আল-ফিকহ অ্যান্ড ইসলামিক স্টাডিজ বিভাগ",uni:"ইসলামী আরবি বিশ্ববিদ্যালয়",aff:"অধিভুক্ত: দারুন নাজাত সিদ্দিকিয়া কামিল মাদ্রাসা",next:"পরের পাতা",loginT:"প্রবেশ করুন",loginMsg:"চালিয়ে যেতে আপনার Google অ্যাকাউন্ট দিয়ে প্রবেশ করুন।",google:"Google দিয়ে প্রবেশ",privacy:"আপনার নাম ও ইমেইল শুধু প্রবেশের জন্য ব্যবহৃত হবে।",noFb:"লগইন এখনো সংযুক্ত করা হয়নি (Firebase-এর তথ্য বসানো বাকি)।",guest:"পরীক্ষামূলক প্রবেশ",fail:"প্রবেশ করা যায়নি। আবার চেষ্টা করুন।",install:"অ্যাপ হিসেবে ইনস্টল করুন",ios:"আইফোনে: Safari-তে শেয়ার বোতাম থেকে “Add to Home Screen” চাপুন।",levelT:"আপনি কোন স্তরের বই পড়তে চান?",honours:"অনার্স",masters:"মাস্টার্স",yearT:"বর্ষ বাছাই করুন",coursesT:"কোর্সসমূহ",code:"কোড",credit:"ক্রেডিট",booksT:"বইয়ের তালিকা",noBooks:"বইয়ের তালিকা শীঘ্রই আসছে।",read:"অনলাইনে পড়ুন",dl:"ডাউনলোড",out:"বের হোন",theme:"মোড",home:"শুরু",yrs:["১ম বর্ষ","২য় বর্ষ","৩য় বর্ষ","৪র্থ বর্ষ"],my:"মাস্টার্স বর্ষ",nc:n=>n+"টি কোর্স",th:{light:"আলো",dark:"অন্ধকার",sepia:"সেপিয়া",green:"সবুজ",night:"নীল রাত"}},
+ar:{t:"مكتبة الفقه والدراسات الإسلامية",hi:"مرحبًا بكم!",msg:"نرحّب بكم في هذه المكتبة لقراءة الكتب وللاطّلاع على الكتب الدراسية لمقررات الجامعة في مكان واحد. نسأل الله أن يبارك لكم في رحلة طلب العلم.",name:"حسن أحمد",dept:"قسم الفقه والدراسات الإسلامية",uni:"الجامعة الإسلامية العربية",aff:"المنتسبة: مدرسة دار النجاة الصديقية الكاملة",next:"الصفحة التالية",loginT:"تسجيل الدخول",loginMsg:"للمتابعة، سجّلوا الدخول بحساب Google.",google:"الدخول عبر Google",privacy:"يُستخدم اسمكم وبريدكم الإلكتروني للدخول فقط.",noFb:"لم يُربط تسجيل الدخول بعد (بيانات Firebase غير مضافة).",guest:"دخول تجريبي",fail:"تعذّر الدخول. حاولوا مرة أخرى.",install:"تثبيت كتطبيق",ios:"على iPhone: من زر المشاركة في Safari اختاروا «إضافة إلى الشاشة الرئيسية».",levelT:"أي مرحلة دراسية تريدون؟",honours:"البكالوريوس",masters:"الماجستير",yearT:"اختاروا السنة",coursesT:"المقررات",code:"الرمز",credit:"الساعات",booksT:"قائمة الكتب",noBooks:"قائمة الكتب قريبًا.",read:"اقرأ على الإنترنت",dl:"تحميل",out:"خروج",theme:"المظهر",home:"البداية",yrs:["السنة الأولى","السنة الثانية","السنة الثالثة","السنة الرابعة"],my:"سنة الماجستير",nc:n=>n+" مقررات",th:{light:"فاتح",dark:"داكن",sepia:"ورقي",green:"أخضر",night:"ليل أزرق"}}
 };
-const YEARS = {y1:{bn:"১ম বর্ষ",ar:"السنة الأولى",en:"1st Year"}};
-const SUBJ = {
-  fiqh:{bn:"ফিকহ",ar:"الفقه",en:"Fiqh"},
-  usul:{bn:"উসূলুল ফিকহ",ar:"أصول الفقه",en:"Usul al-Fiqh"},
-  hadith:{bn:"হাদীস",ar:"الحديث",en:"Hadith"},
-  tafsir:{bn:"তাফসীর",ar:"التفسير",en:"Tafsir"},
-  aqida:{bn:"আকীদা",ar:"العقيدة",en:"Aqidah"},
-  arabic:{bn:"আরবি",ar:"اللغة العربية",en:"Arabic"}
-};
-/* ===== বই যোগ করার জায়গা =====
-   একটি লাইন কপি করে তিন ভাষার নাম, লেখক ও লিংক বসান।
-   read / download খালি রাখলে "শীঘ্রই আসছে" দেখাবে। */
-const BOOKS = [
-  {t:{bn:"হিদায়া",ar:"الهداية",en:"Al-Hidaya"},a:{bn:"বুরহানুদ্দীন আল-মারগীনানী",ar:"برهان الدين المرغيناني",en:"Burhan al-Din al-Marghinani"},year:"y1",subj:"fiqh",read:"",download:""},
-  {t:{bn:"নূরুল আনওয়ার",ar:"نور الأنوار",en:"Nur al-Anwar"},a:{bn:"মুল্লা জিওয়ান",ar:"الملا جيون",en:"Mulla Jiwan"},year:"y1",subj:"usul",read:"",download:""},
-  {t:{bn:"আহাদীসুল আহকাম",ar:"أحاديث الأحكام",en:"Ahadith al-Ahkam"},a:{bn:"",ar:"",en:""},year:"y1",subj:"hadith",read:"",download:""},
-  {t:{bn:"আয়াতুল আহকাম",ar:"آيات الأحكام",en:"Ayat al-Ahkam"},a:{bn:"",ar:"",en:""},year:"y1",subj:"tafsir",read:"",download:""},
-  {t:{bn:"আল-আকীদাতুল ইসলামিয়্যাহ",ar:"العقيدة الإسلامية",en:"Al-Aqidah al-Islamiyyah"},a:{bn:"",ar:"",en:""},year:"y1",subj:"aqida",read:"",download:""},
-  {t:{bn:"আরবি (২য় পত্র)",ar:"اللغة العربية (الورقة الثانية)",en:"Arabic (2nd Paper)"},a:{bn:"",ar:"",en:""},year:"y1",subj:"arabic",read:"",download:""}
-];
-const COLORS = ["#0f6b5c","#a97c1f","#2f5d8a","#8a3f4f","#5a6b2a","#6b4e8a"];
-const keys = Object.keys(SUBJ);
-const $ = id => document.getElementById(id);
-const state = {q:"", year:"all", subj:"all", lang:"bn"};
-try{ const s = localStorage.getItem("lang"); if(s && UI[s]) state.lang = s; else { const n = (navigator.language||"").slice(0,2); if(UI[n]) state.lang = n; } }catch(e){}
+const ls=(k,v)=>{try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}};
+const S={lang:ls("lang")||((navigator.language||"").slice(0,2)==="ar"?"ar":"bn"),theme:ls("theme")||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"),size:+ls("size")||17,user:null,ready:false,cfg:!!(window.FIREBASE_CONFIG&&FIREBASE_CONFIG.apiKey)};
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const T=()=>UI[S.lang];
+const num=n=>new Intl.NumberFormat(S.lang==="ar"?"ar":"bn-BD").format(n);
+const yn=(l,y)=>l==="masters"?T().my:T().yrs[y-1];
+const lv=l=>T()[l];
+const cr=a=>'<p class="cr">'+a.map(([t,h])=>h?'<a href="'+h+'">'+esc(t)+'</a>':esc(t)).join(" › ")+"</p>";
+let fb=null,deferred=null;
 
-function pills(el, list, key, label){
-  el.innerHTML = ""; el.setAttribute("aria-label", label);
-  list.forEach(([v,text]) => {
-    const b = document.createElement("button");
-    b.type = "button"; b.className = "pill"; b.textContent = text;
-    b.setAttribute("aria-pressed", state[key] === v);
-    b.onclick = () => { state[key] = v; draw(); };
-    el.appendChild(b);
-  });
+function apply(){
+  const d=document.documentElement;
+  d.dataset.theme=S.theme;d.lang=S.lang;d.dir=S.lang==="ar"?"rtl":"ltr";d.style.setProperty("--fs",S.size+"px");
+  document.title=T().t;
 }
-function draw(){
-  const L = state.lang, T = UI[L];
-  document.documentElement.lang = L; document.documentElement.dir = T.dir;
-  document.title = {bn:"ফিকহ গ্রন্থাগার",ar:"مكتبة الفقه",en:"Fiqh Library"}[L];
-  $("brand").textContent = T.brand; $("h1").textContent = T.h1; $("lead").textContent = T.lead;
-  $("q").placeholder = T.ph; $("qlabel").textContent = T.ph; $("foot").textContent = T.foot;
-  const dark = document.documentElement.dataset.theme === "dark" ||
-    (!document.documentElement.dataset.theme && matchMedia("(prefers-color-scheme:dark)").matches);
-  $("theme").textContent = dark ? T.light : T.dark;
-  const lg = $("langs"); lg.innerHTML = "";
-  Object.keys(UI).forEach(k => {
-    const b = document.createElement("button");
-    b.type = "button"; b.className = "pill"; b.textContent = UI[k].name; b.lang = k;
-    b.setAttribute("aria-pressed", k === L);
-    b.onclick = () => { state.lang = k; try{ localStorage.setItem("lang", k); }catch(e){} draw(); };
-    lg.appendChild(b);
-  });
-  pills($("years"), [["all",T.all], ...Object.keys(YEARS).map(k => [k, YEARS[k][L]])], "year", T.years);
-  pills($("subjects"), [["all",T.all], ...keys.map(k => [k, SUBJ[k][L]])], "subj", T.subjects);
-  const q = $("q").value.trim().toLowerCase();
-  const rows = BOOKS.filter(b =>
-    (state.year === "all" || b.year === state.year) &&
-    (state.subj === "all" || b.subj === state.subj) &&
-    (!q || [b.t.bn,b.t.ar,b.t.en,b.a.bn,b.a.ar,b.a.en,SUBJ[b.subj][L]].join(" ").toLowerCase().includes(q)));
-  $("count").textContent = T.found(new Intl.NumberFormat(T.locale).format(rows.length));
-  const list = $("list"); list.innerHTML = "";
-  if(!rows.length){ const li = document.createElement("li"); li.className = "empty"; li.textContent = T.none; list.appendChild(li); return; }
-  rows.forEach(b => {
-    const li = document.createElement("li"); li.className = "book";
-    li.style.setProperty("--c", COLORS[keys.indexOf(b.subj) % COLORS.length]);
-    li.innerHTML = '<div class="spine"></div><div class="body"><div class="info"><h2></h2><span class="orig" dir="rtl" lang="ar"></span><p class="meta"></p></div><div class="acts"></div></div>';
-    li.querySelector("h2").textContent = b.t[L];
-    const o = li.querySelector(".orig"); if(L === "ar") o.remove(); else o.textContent = b.t.ar;
-    li.querySelector(".meta").textContent = [YEARS[b.year][L], SUBJ[b.subj][L], b.a[L]].filter(Boolean).join(" • ");
-    const acts = li.querySelector(".acts");
-    const add = (href, text, cls) => { const a = document.createElement("a"); a.className = "btn " + cls; a.href = href; a.target = "_blank"; a.rel = "noopener"; a.textContent = text; acts.appendChild(a); };
-    if(!b.read && !b.download){ const s = document.createElement("span"); s.className = "soon"; s.textContent = T.soon; acts.appendChild(s); }
-    if(b.read) add(b.read, T.read, "main");
-    if(b.download) add(b.download, T.dl, "");
-    list.appendChild(li);
-  });
+function head(){
+  const t=T();
+  $("#top").innerHTML='<div class="hd"><a class="logo" href="#/">'+esc(t.t)+'</a><div class="ct">'+
+  ["bn","ar"].map(l=>'<button class="pl" data-lang="'+l+'" aria-pressed="'+(S.lang===l)+'">'+(l==="bn"?"বাংলা":"العربية")+'</button>').join("")+
+  '<select id="th" aria-label="'+t.theme+'">'+Object.keys(t.th).map(k=>'<option value="'+k+'"'+(S.theme===k?" selected":"")+'>'+t.th[k]+'</option>').join("")+'</select>'+
+  '<button class="pl" id="fm" aria-label="A-">A−</button><button class="pl" id="fp" aria-label="A+">A+</button>'+
+  (S.user?'<span class="us">'+esc(S.user.name)+'</span><button class="pl" id="so">'+t.out+"</button>":"")+"</div></div>";
 }
-$("q").addEventListener("input", draw);
-$("theme").onclick = () => {
-  const dark = document.documentElement.dataset.theme === "dark" ||
-    (!document.documentElement.dataset.theme && matchMedia("(prefers-color-scheme:dark)").matches);
-  document.documentElement.dataset.theme = dark ? "light" : "dark"; draw();
-};
-draw();
+function views(p){
+  const t=T(),r=p[0]||"welcome";
+  if(r==="welcome")return["اقرأ",'<section class="hero"><h1>'+t.hi+'</h1><p class="lead">'+t.msg+'</p><div class="who"><b>'+t.name+"</b><br>"+t.dept+"<br>"+t.uni+"<br>"+t.aff+'</div><a class="btn" href="#/login">'+t.next+"</a>"+(deferred?'<button class="btn alt" id="inst">'+t.install+"</button>":"")+'<p class="mu">'+t.ios+"</p></section>"];
+  if(r==="login")return["العلم نور",'<section class="hero"><h1>'+t.loginT+'</h1><p class="lead">'+t.loginMsg+"</p>"+(S.cfg?'<button class="btn" id="gl">'+t.google+"</button>":'<p class="note">'+t.noFb+'</p><button class="btn alt" id="gs">'+t.guest+"</button>")+'<p class="mu">'+t.privacy+"</p></section>"];
+  if(r==="level")return["الفقه",cr([[t.home,"#/"],[t.levelT]])+'<h2>'+t.levelT+'</h2><div class="grid">'+["honours","masters"].map(l=>'<a class="card" href="#/y/'+l+'"><b>'+t[l]+'</b><span class="chip">'+t.nc(num(Object.values(DATA[l]).reduce((a,c)=>a+c.length,0)))+"</span></a>").join("")+"</div>"];
+  const l=p[1];if(!DATA[l])return views(["level"]);
+  if(r==="y")return["الدرس",cr([[t.home,"#/level"],[lv(l)]])+"<h2>"+t.yearT+'</h2><div class="grid">'+Object.keys(DATA[l]).map(y=>'<a class="card" href="#/c/'+l+"/"+y+'"><b>'+yn(l,y)+'</b><span class="chip">'+t.nc(num(DATA[l][y].length))+"</span></a>").join("")+"</div>"];
+  const y=p[2],cs=DATA[l][y];if(!cs)return views(["y",l]);
+  if(r==="c")return["المقرر",cr([[t.home,"#/level"],[lv(l),"#/y/"+l],[yn(l,y)]])+"<h2>"+t.coursesT+'</h2><div class="grid">'+cs.map((c,i)=>'<a class="card" href="#/k/'+l+"/"+y+"/"+i+'"><b>'+esc(c[S.lang])+'</b><span class="chip">'+t.code+": "+esc(c.code||"—")+'</span><span class="chip">'+t.credit+": "+esc(c.credit||"—")+"</span></a>").join("")+"</div>"];
+  const c=cs[+p[3]];if(!c)return views(["c",l,y]);
+  return["الكتاب",cr([[t.home,"#/level"],[lv(l),"#/y/"+l],[yn(l,y),"#/c/"+l+"/"+y],[c[S.lang]]])+"<h2>"+esc(c[S.lang])+'</h2><span class="chip">'+t.code+": "+esc(c.code||"—")+'</span><span class="chip">'+t.credit+": "+esc(c.credit||"—")+'</span><h2 style="margin-top:1.2rem;font-size:1.25rem">'+t.booksT+"</h2>"+(c.books.length?c.books.map(b=>'<div class="bk"><b>'+esc(b[S.lang])+"</b><span>"+(b.read?'<a class="btn" target="_blank" rel="noopener" href="'+esc(b.read)+'">'+t.read+"</a>":"")+(b.download?'<a class="btn alt" target="_blank" rel="noopener" href="'+esc(b.download)+'">'+t.dl+"</a>":"")+"</span></div>").join(""):'<p class="note">'+t.noBooks+"</p>")];
+}
+function render(){
+  const p=location.hash.replace(/^#\/?/,"").split("/").filter(Boolean),r=p[0]||"welcome";
+  if(!S.ready){$("#app").innerHTML='<p class="hero">…</p>';return}
+  if(r!=="welcome"&&r!=="login"&&!S.user){location.hash="#/login";return}
+  if(r==="login"&&S.user){location.hash="#/level";return}
+  const [w,h]=views(p);
+  $("#bg").dataset.w=w;$("#app").innerHTML=h;window.scrollTo(0,0);
+}
+function all(){apply();head();render()}
+async function initAuth(){
+  if(!S.cfg){if(sessionStorage.getItem("guest"))S.user={name:"Guest"};S.ready=true;return all()}
+  try{
+    const v="10.12.2",a=await import("https://www.gstatic.com/firebasejs/"+v+"/firebase-app.js"),m=await import("https://www.gstatic.com/firebasejs/"+v+"/firebase-auth.js");
+    const auth=m.getAuth(a.initializeApp(FIREBASE_CONFIG));fb={auth,m};
+    m.onAuthStateChanged(auth,u=>{S.user=u?{name:u.displayName||u.email}:null;S.ready=true;all()});
+  }catch(e){S.ready=true;all()}
+}
+document.addEventListener("click",async e=>{
+  const b=e.target.closest("[data-lang],#fm,#fp,#so,#gl,#gs,#inst");if(!b)return;
+  if(b.dataset.lang){S.lang=b.dataset.lang;ls("lang",S.lang);return all()}
+  if(b.id==="fm"||b.id==="fp"){S.size=Math.min(24,Math.max(14,S.size+(b.id==="fp"?1:-1)));ls("size",S.size);return apply()}
+  if(b.id==="gs"){sessionStorage.setItem("guest","1");S.user={name:"Guest"};location.hash="#/level";return all()}
+  if(b.id==="inst"&&deferred){deferred.prompt();deferred=null;return render()}
+  if(b.id==="gl"&&fb){try{await fb.m.signInWithPopup(fb.auth,new fb.m.GoogleAuthProvider())}catch(x){alert(T().fail);return}location.hash="#/level"}
+  if(b.id==="so"){sessionStorage.removeItem("guest");if(fb)await fb.m.signOut(fb.auth);S.user=null;location.hash="#/login";all()}
+});
+document.addEventListener("change",e=>{if(e.target.id==="th"){S.theme=e.target.value;ls("theme",S.theme);apply()}});
+window.addEventListener("hashchange",render);
+window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferred=e;render()});
+if("serviceWorker" in navigator)window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
+apply();head();initAuth();
 </script>
 </body>
 </html>
