@@ -1,18 +1,29 @@
-/* ===== Firebase (Google লগইন) — Firebase প্রকল্প খোলার পর এই চারটি ঘর পূরণ করুন =====
-   খালি থাকলে লগইন পাতায় "পরীক্ষামূলক প্রবেশ" বোতাম দেখাবে। */
-window.FIREBASE_CONFIG = { apiKey:"", authDomain:"", projectId:"", appId:"" };
-
 /* ===== কোর্স ও বই =====
-   C(বাংলা নাম, আরবি নাম, কোড, ক্রেডিট, [বইয়ের তালিকা])
-   B(বাংলা নাম, আরবি নাম, পড়ার লিংক, ডাউনলোড লিংক)
-   উদাহরণ: C("হিদায়া","الهداية","FIQ-101","৪",[ B("হিদায়া ১ম খণ্ড","الهداية ج١","https://archive.org/details/...","https://archive.org/download/.../file.pdf") ]) */
-const C=(bn,ar,code="",credit="",books=[])=>({bn,ar,code,credit,books});
-const B=(bn,ar,read="",download="")=>({bn,ar,read,download});
-const nb=new Intl.NumberFormat("bn-BD");
-const blank=(p,y)=>[1,2,3,4,5,6,7].map(i=>C("কোর্স "+nb.format(i)+" (নাম বসান)","المقرر "+i,p+y+"0"+i));
+   প্রতিটি কোর্স: n = ইংরেজি নাম, a = আরবি নাম (সিলেবাসের তালিকা অনুযায়ী), code, m = নম্বর, cr = ক্রেডিট, h = ক্লাস ঘণ্টা
+   dist = মানবণ্টনের সারি [লেখা, মান]
+   syl  = সিলেবাসের লাইন (উপ-বিষয় শুরু হবে "• " দিয়ে)
+   bk   = বইয়ের দল [{h: দলের শিরোনাম, items: [{t: বইয়ের নাম, w: লেখক, r: পড়ার লিংক, d: ডাউনলোড লিংক}]}]
+   সিলেবাসের লেখা যে ভাষায় আছে সেই ভাষাতেই বসানো হয়েছে। */
+const K=(code,n,a,dist,syl=[],bk=[])=>({code,n,a,m:100,cr:4,h:120,dist,syl,bk});
+const blank=(p,y)=>[1,2,3,4,5,6,7].map(i=>({code:p+y+"0"+i,n:"—",a:"",m:"",cr:"",h:"",dist:[],syl:[],bk:[]}));
+const D1=[["Incourse Exam and Attendance","15+5=20"],["Final Exam:80",""]];
 const DATA={
   honours:{
-    1:[C("হিদায়া","الهداية"),C("আরবি (২য় পত্র)","اللغة العربية (الورقة الثانية)"),C("নূরুল আনওয়ার","نور الأنوار"),C("আহাদীসুল আহকাম","أحاديث الأحكام"),C("আয়াতুল আহকাম","آيات الأحكام"),C("আল-আকীদাতুল ইসলামিয়্যাহ","العقيدة الإسلامية"),C("কম্পিউটার","الحاسوب")],
+    1:[
+      K("206101","Introduction to jurisprudence","المدخل إلى علم الفقه",[...D1,["Broad Questions (5 out of 8)","5×12=60"],["Short Question (4 out of 6)","4×05=20"],["Total = 100",""]]),
+      K("206102","Jurisprudence of Ibadah","فقه العبادات",[...D1,["Broad Questions (5 out of 8)","5×12=60"],["Short Questions (4 out of 6)","4×05=20"],["Total = 100",""]],
+        ["يدرس الطالب في هذه المادة الكتب التالية من الفقه بالتفصيل والتحليل","1. كتاب الطهارة، كتاب الصلاة، كتاب الصوم، كتاب الزكاة، كتاب الحج","2. دراسة عابرة عن ترجمة العلامة حسن بن عمار بن علي الشرنبلالي المصري الحنفي وهي تشمل: اسمه وولادته ونشأته العلمية ورحلاته، أشهر شيوخه وتلاميذه ومكانته العلمية، ومناقبه وأقوال العلماء فيه، ومؤلفاته، ووفاته.","3. دراسة عن كتاب مراقي الفلاح وهي تشمل: ميزاته وخصائصه، ومنهج المؤلف فيه، وعدد كتبه وأبوابه، ومنزلته بين كتب الفقه الحنفي.وعناية العلماء به"],
+        [{h:"الكتاب المقرر:",items:[{t:"مراقي الفلاح شرح متن نور الإيضاح",w:"حسن بن عمار بن علي الشرنبلالي المصري الحنفي"}]},
+         {h:"المصادر والمراجع:",items:[
+          {t:"حاشية الطحطاوي على مراقي الفلاح",w:"أحمد بن محمد الطحطاوي"},{t:"نور الإيضاح (متن)",w:"حسن بن عمار بن علي الشرنبلالي"},{t:"سبيل الفلاح شرح نور الإيضاح",w:"محي الدين عبد الحميد"},{t:"إمداد الفتاح شرح نور الإيضاح",w:"حسن بن عمار الشرنبلالي"},{t:"منة الفتاح على مراقي الفلاح",w:"د. صلاح أبو الحاج"},{t:"ضوء المصباح شرح نور الإيضاح",w:"محمد بن علي إسكندر الحسيني"},{t:"شفاء الأرواح شرح اردو نور الإيضاح",w:"مولانا محمد رفيق سورتي"},{t:"غنية المتملي في شرح منية المصلي",w:"محمد بن محمد الكاشغري الحنفي"},{t:"حلبي كبير (غنية المستملي شرح منية المصلي)",w:"إبراهيم الحلبي"},{t:"زاد الفقيه",w:"كمال الدين ابن الهمام"},{t:"تحفة الفقهاء",w:"علاء الدين السمرقندي"},{t:"خزانة الفقه",w:"أبو الليث السمرقندي"},{t:"الفقه الإسلامي وأدلته",w:"د. وهبة الزحيلي"},{t:"الموسوعة الفقهية الكويتية",w:"مجلس التحرير"},{t:"الفقه على المذاهب الأربعة",w:"عبد الرحمن الجزيري"},{t:"الفقه الواضح",w:"د. محمد بكر إسماعيلي"},{t:"الفقه الحنفي وأدلته",w:"محمد سعيد صاغرجي"},{t:"الفقه الحنفي في ثوبه الجديد",w:"عبد الحميد محمود"},{t:"التجريد",w:"أبو الحسن القدوري"},{t:"بدائع الصنائع",w:"علاء الدين الكاساني"},{t:"الهداية",w:"برهان الدين المرغيناني"},{t:"المحيط البرهاني",w:"محمود البخاري بن مازة"},{t:"البحر الرائق شرح كنز الدقائق",w:"زين الدين ابن نجيم المصري"},{t:"المبسوط",w:"شمس الأئمة السرخسي"},{t:"النُتَف في الفتاوى",w:"أبو الحسن السُغدي"}]}]),
+      K("206103","Functional arabic language","اللغة العربية التطبيقية",[["Incourse Exam and Attendance","15 + 05=20"],["Final Exam : 80",""],["a) Grammar : (Tashkil, Tashih, Tarkib, I'rab, Mal'ul faragah, Making Sentence etc.)","5 × 04 = 20"],["b) Tarqim and Imla","1 × 10 = 10"],["c) Letter/Application/E-mail Writting","1 × 10 = 10"],["d) Dialogue Writing","1 × 10 = 10"],["e) Translation: (From Bengali into Arabic)","1 × 10 = 10"],["f) Paragraph Writing","1 × 10 = 10"],["g) Comprehension : (Short Questions & Summry)","=10"],["Total = 100",""]]),
+      K("206104","Bengali","اللغة البنغالية",[["ইনকোর্স পরীক্ষা ও উপস্থিতি","১৫+৫=২০"],["সমাপনী পরীক্ষা : ৮০",""],["(ক) সাহিত্য:",""],["ক. গদ্য (৩টি থেকে ২টি)","২×১০=২০"],["খ. পদ্য (৩টি থেকে ২টি)","২×১০=২০"],["(খ) সাহিত্যের ইতিহাস: (৩টি থেকে ২টি)","২×১০=২০"],["(গ) ব্যাকরণ: (৬টি থেকে ৪টি)","৪×০৫=২০"],["সর্বমোট = ১০০",""]]),
+      K("206105","Basic english","الإنجليزية الأساسية",[["Incourse Exam and Attendance","15 + 05 = 20"],["Final Exam : 80",""],["1. Grammar (8 out of 10)","8×05 = 40"],["2. Translation (2 out of 3)","2×05 = 10"],["3. Composition (3 out of 5)","3×10 = 30"],["Total = 100",""]],
+        ["A : Grammar = 40","1. Nominal Group :","• a. Determiners","• b. Headword","• c. Modifier","• d. Adjective","• e. Infinitive","• f. Appositive","• g. Phrase (Prepositional phraseh, Participial phrase, Infinitive Phrase.)","2. Function of Parts of speech: Noun, pronoun, Verb and its usage.","3. Verb Modifiers : Adverbial of time, place, manner, duration, frequency and degree.","4. The Tenses, (Right form of verbs), Gerund, Participles.","5. Voice Change","6. Narration","7. Use of Prepositions.","8. Use of Modal Auxiliaries.","9. Subject-Verb Agreement.","10. Phrase and Idioms, phrasal Verbs.","B : Translation = 10","Translations From the Holy Quran :","• a. English Version of some suras (Sura Fatiha, Asr and from Sura Fil to Sura Naas)","• b. Ayats (Verses) of Science, Economics, Agriculture & Islamic politics.","C : Composition = 30","1. Pragraph writing","2. Letter, Application and CV writting","3. Dialogue writing","4. Amplification writing"],
+        [{h:"Recommended Books:",items:[{t:"Learning English the essay way",w:"Sandruddin Ahmed"},{t:"Applied English Grammar & Composition",w:"P.C. Das"},{t:"English Grammar",w:"Raymond Merphy"},{t:"A Practical English Grammar",w:"Thomson and Martine"},{t:"A Passege to Grammar, Translation& Composition",w:"S.M. Zakir Hossain"},{t:"Tactics for Learning Preposition",w:"S.M. Zakir Hossain"},{t:"Guide to patterns and use in English",w:"A.S. Horny"},{t:"A key to Structural analysis",w:"Jahurul Islam"},{t:"Living English Structure",w:"W.S Allen Longman"},{t:"Zenuin B.C. S. English Grammar",w:"M. S. Al-Beruni"},{t:"The Quran Majid",w:"Prof. Sr. M. Rahman"},{t:"The Holy Quran",w:"Abdullah Yousuf Ali"},{t:"English Sentence Structure",w:"Robert Krohn"},{t:"English Grammar in Use",w:"Jahural Islam"},{t:"Oxford Grammar practice",w:"John East wood"},{t:"The Glorious Quran",w:"Muhammad Pickthall"}]}]),
+      K("206106","Economics and islamic economics","الاقتصاد والاقتصاد الإسلامي",[["Incourse Exam and Attendance","15+5=20"],["Final Exam:80",""],["A. Economics:",""],["Broad Questions (2 out of 4)","2×15=30"],["Short Questions (2 out of 4)","2×05=10"],["B. Islamic Economics:",""],["Broad Question (1 out of 2)","1×15=15"],["Short Question (1 out of 2)","1×05=05"],["C. Banking and Insurance in Islam:",""],["Broad Question (1 out of 2)","1×15=15"],["Short Question (1 out of 2)","1×05=05"],["Total = 100",""]]),
+      K("206107","Bangladesh studies","الدراسات البنغلاديشية",[["Incourse Exam and Attendance","15+5=20"],["Final Exam:80",""],["Broad Questions (4 out of 6)","4×15=60"],["Short Questions (4 out of 6)","4×05=20"],["Total = 100",""]])
+    ],
     2:blank("H",2),3:blank("H",3),4:blank("H",4)
   },
   masters:{1:blank("M",1)}
