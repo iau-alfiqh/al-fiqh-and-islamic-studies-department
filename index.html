@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0f3d3a">
-<title>ফিকহ গ্রন্থাগার</title>
+<title>আল-ফিকহ অ্যান্ড ইসলামিক স্টাডিজ বিভাগ</title>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icon-192.png">
@@ -13,10 +13,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600&family=Noto+Serif+Bengali:wght@600;800&family=Noto+Naskh+Arabic:wght@400;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{--fs:17px;--bg:#f3f6f4;--sf:#fff;--ink:#17231f;--mu:#5b6b65;--ln:#d3dcd7;--pr:#0f3d3a;--br:#a97c1f;--on:#f3f6f4}
-[data-theme=dark]{--bg:#0e1513;--sf:#16211e;--ink:#e8efec;--mu:#9fb1aa;--ln:#2a3a35;--pr:#7fc4b8;--br:#d9a940;--on:#0e1513}
 [data-theme=sepia]{--bg:#f1e6d0;--sf:#faf3e3;--ink:#3b2f1e;--mu:#7a6a50;--ln:#d9c9a6;--pr:#7a4b1e;--br:#b07a1e;--on:#fbf4e6}
-[data-theme=green]{--bg:#e7f1e8;--sf:#f6fbf6;--ink:#14301f;--mu:#4d6b57;--ln:#bcd5c1;--pr:#1f6b3a;--br:#9a7b1a;--on:#f6fbf6}
-[data-theme=night]{--bg:#0c1424;--sf:#14213a;--ink:#e6ecf8;--mu:#9fb0d0;--ln:#26375c;--pr:#8fb4ff;--br:#e0b45a;--on:#0c1424}
 *{box-sizing:border-box}
 html{font-size:var(--fs)}
 body{margin:0;min-height:100vh;background:var(--bg);color:var(--ink);font-family:"Hind Siliguri",system-ui,sans-serif;line-height:1.7;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
@@ -63,11 +60,11 @@ a:focus-visible,button:focus-visible,select:focus-visible{outline:3px solid var(
 <script src="data.js"></script>
 <script>
 const UI={
-bn:{t:"ফিকহ ও ইসলামিক স্টাডিজ গ্রন্থাগার",hi:"স্বাগতম!",msg:"যেখানে অক্ষরেরা হাতছানি দিয়ে ডাকে, বিশ্ববিদ্যালয়ের পাঠ্যবই আর জ্ঞানের বিশাল ভাণ্ডার একত্রিত হয়েছে এক মোহনায়। সেই প্রাঙ্গণে আপনাকে জানাই আন্তরিক অভ্যর্থনা।<br><br><b>আপনার এই জ্ঞানান্বেষী যাত্রা হোক বরকতময়।</b>",name:"হাসান আহমদ",dept:"আল-ফিকহ অ্যান্ড ইসলামিক স্টাডিজ বিভাগ",uni:"ইসলামী আরবি বিশ্ববিদ্যালয়",aff:"অধিভুক্ত: দারুননাজাত সিদ্দীকিয়া কামিল মাদরাসা",next:"পরের পাতা",install:"অ্যাপ হিসেবে ইনস্টল করুন",ios:"আইফোনে: Safari-তে শেয়ার বোতাম থেকে “Add to Home Screen” চাপুন।",levelT:"আপনি কোন স্তরের বই পড়তে চান?",honours:"অনার্স",masters:"মাস্টার্স",yearT:"বর্ষ বাছাই করুন",coursesT:"কোর্সসমূহ",code:"কোড",credit:"ক্রেডিট",sy:"সিলেবাস",ds:"মানবণ্টন",bkT:"বই ও অন্যান্য",mk:"নম্বর",hr:"ক্লাস ঘণ্টা",soon:"শীঘ্রই আসছে",pdf:"পিডিএফ শীঘ্রই আসছে",booksT:"বইয়ের তালিকা",noBooks:"বইয়ের তালিকা শীঘ্রই আসছে।",read:"অনলাইনে পড়ুন",dl:"ডাউনলোড",theme:"মোড",home:"শুরু",yrs:["১ম বর্ষ","২য় বর্ষ","৩য় বর্ষ","৪র্থ বর্ষ"],my:"মাস্টার্স বর্ষ",nc:n=>n+"টি কোর্স",th:{light:"আলো",dark:"অন্ধকার",sepia:"সেপিয়া",green:"সবুজ",night:"নীল রাত"}},
-ar:{t:"مكتبة الفقه والدراسات الإسلامية",hi:"مرحبًا بكم!",msg:"حيث تدعوكم الحروف إليها، اجتمعت الكتب الجامعية وكنوز العلم الواسعة في مُلتقًى واحد. وفي هذه الساحة نرحّب بكم أجمل ترحيب.<br><br><b>بارك الله لكم في رحلة طلب العلم.</b>",name:"حسن أحمد",dept:"قسم الفقه والدراسات الإسلامية",uni:"الجامعة الإسلامية العربية",aff:"المنتسبة: مدرسة دار النجاة الصديقية الكاملة",next:"الصفحة التالية",install:"تثبيت كتطبيق",ios:"على iPhone: من زر المشاركة في Safari اختاروا «إضافة إلى الشاشة الرئيسية».",levelT:"أي مرحلة دراسية تريدون؟",honours:"البكالوريوس",masters:"الماجستير",yearT:"اختاروا السنة",coursesT:"المقررات",code:"الرمز",credit:"الساعات",sy:"المنهج",ds:"توزيع الدرجات",bkT:"الكتب والمراجع",mk:"الدرجة",hr:"ساعات الدراسة",soon:"قريبًا",pdf:"ملف PDF قريبًا",booksT:"قائمة الكتب",noBooks:"قائمة الكتب قريبًا.",read:"اقرأ على الإنترنت",dl:"تحميل",theme:"المظهر",home:"البداية",yrs:["السنة الأولى","السنة الثانية","السنة الثالثة","السنة الرابعة"],my:"سنة الماجستير",nc:n=>n+" مقررات",th:{light:"فاتح",dark:"داكن",sepia:"ورقي",green:"أخضر",night:"ليل أزرق"}}
+bn:{t:"আল-ফিকহ অ্যান্ড ইসলামিক স্টাডিজ বিভাগ",hi:"স্বাগতম!",msg:"যেখানে অক্ষরেরা হাতছানি দিয়ে ডাকে, বিশ্ববিদ্যালয়ের পাঠ্যবই আর জ্ঞানের বিশাল ভাণ্ডার একত্রিত হয়েছে এক মোহনায়। সেই প্রাঙ্গণে আপনাকে জানাই আন্তরিক অভ্যর্থনা।<br><br><b>আপনার এই জ্ঞানান্বেষী যাত্রা হোক বরকতময়।</b>",name:"হাসান আহমদ",dept:"আল-ফিকহ অ্যান্ড ইসলামিক স্টাডিজ বিভাগ",uni:"ইসলামী আরবি বিশ্ববিদ্যালয়",aff:"অধিভুক্ত: দারুননাজাত সিদ্দীকিয়া কামিল মাদরাসা",next:"পরের পাতা",install:"অ্যাপ হিসেবে ইনস্টল করুন",ios:"আইফোনে: Safari-তে শেয়ার বোতাম থেকে “Add to Home Screen” চাপুন।",levelT:"আপনি কোন স্তরের বই পড়তে চান?",honours:"অনার্স",masters:"মাস্টার্স",yearT:"বর্ষ বাছাই করুন",coursesT:"কোর্সসমূহ",code:"কোড",credit:"ক্রেডিট",sy:"সিলেবাস",ds:"মানবণ্টন",bkT:"বই ও অন্যান্য",mk:"নম্বর",hr:"ক্লাস ঘণ্টা",soon:"শীঘ্রই আসছে",pdf:"পিডিএফ শীঘ্রই আসছে",booksT:"বইয়ের তালিকা",noBooks:"বইয়ের তালিকা শীঘ্রই আসছে।",read:"অনলাইনে পড়ুন",dl:"ডাউনলোড",theme:"মোড",home:"শুরু",yrs:["১ম বর্ষ","২য় বর্ষ","৩য় বর্ষ","৪র্থ বর্ষ"],my:"মাস্টার্স বর্ষ",nc:n=>n+"টি কোর্স",th:{light:"আলো",sepia:"সেপিয়া"}},
+ar:{t:"قسم الفقه والدراسات الإسلامية",hi:"مرحبًا بكم!",msg:"حيث تدعوكم الحروف إليها، اجتمعت الكتب الجامعية وكنوز العلم الواسعة في مُلتقًى واحد. وفي هذه الساحة نرحّب بكم أجمل ترحيب.<br><br><b>بارك الله لكم في رحلة طلب العلم.</b>",name:"حسن أحمد",dept:"قسم الفقه والدراسات الإسلامية",uni:"الجامعة الإسلامية العربية",aff:"المنتسبة: مدرسة دار النجاة الصديقية الكاملة",next:"الصفحة التالية",install:"تثبيت كتطبيق",ios:"على iPhone: من زر المشاركة في Safari اختاروا «إضافة إلى الشاشة الرئيسية».",levelT:"أي مرحلة دراسية تريدون؟",honours:"البكالوريوس",masters:"الماجستير",yearT:"اختاروا السنة",coursesT:"المقررات",code:"الرمز",credit:"الساعات",sy:"المنهج",ds:"توزيع الدرجات",bkT:"الكتب والمراجع",mk:"الدرجة",hr:"ساعات الدراسة",soon:"قريبًا",pdf:"ملف PDF قريبًا",booksT:"قائمة الكتب",noBooks:"قائمة الكتب قريبًا.",read:"اقرأ على الإنترنت",dl:"تحميل",theme:"المظهر",home:"البداية",yrs:["السنة الأولى","السنة الثانية","السنة الثالثة","السنة الرابعة"],my:"سنة الماجستير",nc:n=>n+" مقررات",th:{light:"فاتح",sepia:"ورقي"}}
 };
 const ls=(k,v)=>{try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}};
-const S={lang:ls("lang")||((navigator.language||"").slice(0,2)==="ar"?"ar":"bn"),theme:ls("theme")||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"),size:+ls("size")||17};
+const S={lang:ls("lang")||((navigator.language||"").slice(0,2)==="ar"?"ar":"bn"),theme:ls("theme")==="sepia"?"sepia":"light",size:+ls("size")||17};
 const $=s=>document.querySelector(s);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const T=()=>UI[S.lang];
