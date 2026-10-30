@@ -9,6 +9,8 @@
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icon-192.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="description" content="আল-ফিকহ অ্যান্ড ইসলামিক স্টাডিজ বিভাগের কোর্স অনুযায়ী পাঠ্যবই, সিলেবাস ও মানবণ্টন এক জায়গায়।">
+<meta property="og:type" content="website"><meta property="og:title" content="আল-ফিকহ অ্যান্ড ইসলামিক স্টাডিজ বিভাগ — অনলাইন গ্রন্থাগার"><meta property="og:description" content="কোর্স অনুযায়ী পাঠ্যবই, সিলেবাস ও মানবণ্টন এক জায়গায়।"><meta property="og:image" content="https://iau2026.github.io/al-fiqh-and-islamic-studies-department/og-image.png"><meta property="og:url" content="https://iau2026.github.io/al-fiqh-and-islamic-studies-department/"><meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600&family=Noto+Serif+Bengali:wght@600;800&family=Noto+Naskh+Arabic:wght@400;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 <style>
@@ -27,7 +29,7 @@ html[lang=ar] body{font-family:"Noto Naskh Arabic","Amiri",serif;line-height:1.9
 .ct{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center}
 .pl,select{background:var(--sf);border:1px solid var(--ln);color:var(--ink);border-radius:999px;padding:.1rem .8rem;font:inherit;font-size:.85rem;cursor:pointer}
 .pl[aria-pressed=true]{background:var(--pr);color:var(--on);border-color:var(--pr)}
-.us{font-size:.85rem;color:var(--mu)}.sub{font-size:.8rem;color:var(--mu);line-height:1.4}
+.us{font-size:.85rem;color:var(--mu)}.subt{font-size:.8rem;color:var(--mu);line-height:1.4}
 h1{font-family:"Noto Serif Bengali",serif;font-weight:800;color:var(--pr);font-size:clamp(1.9rem,6vw,3rem);line-height:1.3;margin:.4rem 0}
 html[lang=ar] h1{font-family:Amiri,serif}
 .hero{text-align:center;padding:2rem 0;max-width:640px;margin:0 auto}
@@ -50,6 +52,11 @@ html[dir=rtl] .chip{margin:.3rem 0 0 .3rem}
 p.sy{margin:.45rem 0}.sub{margin-inline-start:1.6rem}.tabs{display:flex;flex-wrap:wrap;gap:.4rem;margin:1rem 0}
 .tbl{width:100%;border-collapse:collapse;background:var(--sf)}.tbl td{border:1px solid var(--ln);padding:.4rem .7rem}.tbl td+td{white-space:nowrap}
 h3{font-size:1.1rem;margin:1.2rem 0 .6rem}.bk .mu{font-size:.9rem}.soon{font-size:.85rem;color:var(--mu)}
+a.pl{text-decoration:none;display:inline-block}.sf{display:flex;gap:.4rem;flex:1 1 240px;max-width:460px}.sf input{flex:1;min-width:0;border:1px solid var(--ln);background:var(--sf);color:var(--ink);border-radius:999px;padding:.2rem .9rem;font:inherit}
+.st{background:none;border:0;font-size:1.3rem;cursor:pointer;color:var(--br);padding:0 .3rem;line-height:1}.dot{display:inline-block;width:.5rem;height:.5rem;border-radius:50%;background:#c0392b;margin-inline-start:.3rem}
+footer{max-width:960px;margin:2rem auto 1.5rem;padding:0 1.2rem}.fb{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0}#cfb form{display:grid;gap:.5rem;max-width:480px;margin-bottom:1rem}#cfb input,#cfb select,#cfb textarea{font:inherit;padding:.4rem .6rem;border:1px solid var(--ln);border-radius:.5rem;background:var(--sf);color:var(--ink)}
+.nt{background:var(--sf);border:1px solid var(--ln);border-radius:.6rem;padding:.8rem 1rem;margin-bottom:.6rem}
+@media print{header,footer,.bg,.pat,.noprint,.cr{display:none!important}body{background:#fff;color:#000}.card,.bk,.tbl,.tbl td{border-color:#999}}
 a:focus-visible,button:focus-visible,select:focus-visible{outline:3px solid var(--br);outline-offset:2px}
 </style>
 </head>
@@ -57,15 +64,17 @@ a:focus-visible,button:focus-visible,select:focus-visible{outline:3px solid var(
 <div class="bg" id="bg"></div><div class="pat"></div>
 <header id="top"></header>
 <main id="app"></main>
+<footer id="ft" class="noprint"></footer>
 <script src="data.js"></script>
 <script src="year2.js"></script>
 <script src="year3.js"></script>
 <script src="year4.js"></script>
 <script src="masters1.js"></script>
+<script src="site.js"></script>
 <script>
 const UI={
-bn:{t:"আল-ফিকহ অ্যান্ড ইসলামিক স্টাডিজ বিভাগ",hi:"স্বাগতম!",sub:"এটি একটি ব্যক্তিগত অনলাইন গ্রন্থাগার",msg:"যেখানে অক্ষরেরা হাতছানি দিয়ে ডাকে, বিশ্ববিদ্যালয়ের পাঠ্যবই আর জ্ঞানের বিশাল ভাণ্ডার একত্রিত হয়েছে এক মোহনায়। সেই প্রাঙ্গণে আপনাকে জানাই আন্তরিক অভ্যর্থনা।<br><br><b>আপনার এই জ্ঞানান্বেষী যাত্রা হোক বরকতময়।</b>",name:"হাসান আহমদ",dept:"আল-ফিকহ অ্যান্ড ইসলামিক স্টাডিজ বিভাগ",uni:"ইসলামী আরবি বিশ্ববিদ্যালয়",aff:"অধিভুক্ত: দারুননাজাত সিদ্দীকিয়া কামিল মাদরাসা",next:"পরের পাতা",install:"অ্যাপ হিসেবে ইনস্টল করুন",ios:"আইফোনে: Safari-তে শেয়ার বোতাম থেকে “Add to Home Screen” চাপুন।",levelT:"আপনি কোন স্তরের বই পড়তে চান?",honours:"অনার্স",masters:"মাস্টার্স",yearT:"বর্ষ বাছাই করুন",coursesT:"কোর্সসমূহ",code:"কোড",credit:"ক্রেডিট",sy:"সিলেবাস",ds:"মানবণ্টন",bkT:"বই ও অন্যান্য",mk:"নম্বর",hr:"ক্লাস ঘণ্টা",soon:"শীঘ্রই আসছে",pdf:"পিডিএফ শীঘ্রই আসছে",booksT:"বইয়ের তালিকা",noBooks:"বইয়ের তালিকা শীঘ্রই আসছে।",read:"অনলাইনে পড়ুন",dl:"ডাউনলোড",theme:"মোড",home:"শুরু",yrs:["১ম বর্ষ","২য় বর্ষ","৩য় বর্ষ","৪র্থ বর্ষ"],my:"মাস্টার্স বর্ষ",nc:n=>n+"টি কোর্স",th:{light:"আলো",sepia:"সেপিয়া"}},
-ar:{t:"قسم الفقه والدراسات الإسلامية",hi:"مرحبًا بكم!",sub:"هذه مكتبة إلكترونية شخصية",msg:"حيث تدعوكم الحروف إليها، اجتمعت الكتب الجامعية وكنوز العلم الواسعة في مُلتقًى واحد. وفي هذه الساحة نرحّب بكم أجمل ترحيب.<br><br><b>بارك الله لكم في رحلة طلب العلم.</b>",name:"حسن أحمد",dept:"قسم الفقه والدراسات الإسلامية",uni:"الجامعة الإسلامية العربية",aff:"المنتسبة: مدرسة دار النجاة الصديقية الكاملة",next:"الصفحة التالية",install:"تثبيت كتطبيق",ios:"على iPhone: من زر المشاركة في Safari اختاروا «إضافة إلى الشاشة الرئيسية».",levelT:"أي مرحلة دراسية تريدون؟",honours:"البكالوريوس",masters:"الماجستير",yearT:"اختاروا السنة",coursesT:"المقررات",code:"الرمز",credit:"الساعات",sy:"المنهج",ds:"توزيع الدرجات",bkT:"الكتب والمراجع",mk:"الدرجة",hr:"ساعات الدراسة",soon:"قريبًا",pdf:"ملف PDF قريبًا",booksT:"قائمة الكتب",noBooks:"قائمة الكتب قريبًا.",read:"اقرأ على الإنترنت",dl:"تحميل",theme:"المظهر",home:"البداية",yrs:["السنة الأولى","السنة الثانية","السنة الثالثة","السنة الرابعة"],my:"سنة الماجستير",nc:n=>n+" مقررات",th:{light:"فاتح",sepia:"ورقي"}}
+bn:{t:"আল-ফিকহ অ্যান্ড ইসলামিক স্টাডিজ বিভাগ",hi:"স্বাগতম!",sub:"এটি একটি ব্যক্তিগত অনলাইন গ্রন্থাগার",msg:"যেখানে অক্ষরেরা হাতছানি দিয়ে ডাকে, বিশ্ববিদ্যালয়ের পাঠ্যবই আর জ্ঞানের বিশাল ভাণ্ডার একত্রিত হয়েছে এক মোহনায়। সেই প্রাঙ্গণে আপনাকে জানাই আন্তরিক অভ্যর্থনা।<br><br><b>আপনার এই জ্ঞানান্বেষী যাত্রা হোক বরকতময়।</b>",name:"হাসান আহমদ",dept:"আল-ফিকহ অ্যান্ড ইসলামিক স্টাডিজ বিভাগ",uni:"ইসলামী আরবি বিশ্ববিদ্যালয়",aff:"অধিভুক্ত: দারুননাজাত সিদ্দীকিয়া কামিল মাদরাসা",next:"পরের পাতা",install:"অ্যাপ হিসেবে ইনস্টল করুন",ios:"আইফোনে: Safari-তে শেয়ার বোতাম থেকে “Add to Home Screen” চাপুন।",levelT:"আপনি কোন স্তরের বই পড়তে চান?",honours:"অনার্স",masters:"মাস্টার্স",yearT:"বর্ষ বাছাই করুন",coursesT:"কোর্সসমূহ",code:"কোড",credit:"ক্রেডিট",sy:"সিলেবাস",ds:"মানবণ্টন",bkT:"বই ও অন্যান্য",mk:"নম্বর",hr:"ক্লাস ঘণ্টা",soon:"শীঘ্রই আসছে",pdf:"পিডিএফ শীঘ্রই আসছে",booksT:"বইয়ের তালিকা",noBooks:"বইয়ের তালিকা শীঘ্রই আসছে।",read:"অনলাইনে পড়ুন",dl:"ডাউনলোড",theme:"মোড",home:"শুরু",yrs:["১ম বর্ষ","২য় বর্ষ","৩য় বর্ষ","৪র্থ বর্ষ"],my:"মাস্টার্স বর্ষ",nc:n=>n+"টি কোর্স",srch:"বই, লেখক বা কোর্স খুঁজুন…",sres:"খোঁজার ফল",none:"কিছু পাওয়া যায়নি।",crs:"কোর্স",bks:"বই",mine:"আমার",favT:"প্রিয় বই",recT:"সর্বশেষ খোলা বই",noFav:"কোনো প্রিয় বই নেই। বইয়ের পাশের ☆ চাপুন।",noRec:"এখনো কোনো বই খোলা হয়নি।",noticeT:"নোটিশ বোর্ড",noNotice:"কোনো নোটিশ নেই।",notif:"নতুন নোটিশের বিজ্ঞপ্তি চালু করুন",notifOn:"বিজ্ঞপ্তি চালু আছে",notifNote:"সাইট বা অ্যাপ খুললে নতুন নোটিশের বিজ্ঞপ্তি দেখাবে।",share:"শেয়ার করুন",copied:"লিংক কপি হয়েছে",qr:"QR কোড",contactT:"যোগাযোগ ও অপসারণের অনুরোধ",cOpts:["বই সরানোর অনুরোধ","লিংক কাজ করছে না","ভুল তথ্য","পরামর্শ"],cBook:"কোন বই বা কোর্স?",cMsg:"আপনার বার্তা",cSend:"ইমেইলে পাঠান",disc:"এই গ্রন্থাগারের বইয়ের লিংকগুলো পাঠকের সুবিধার জন্য সাজানো। কোনো বই নিয়ে আপত্তি থাকলে জানান, দ্রুত ব্যবস্থা নেওয়া হবে।",print:"প্রিন্ট / পিডিএফ",th:{light:"আলো",sepia:"সেপিয়া"}},
+ar:{t:"قسم الفقه والدراسات الإسلامية",hi:"مرحبًا بكم!",sub:"هذه مكتبة إلكترونية شخصية",msg:"حيث تدعوكم الحروف إليها، اجتمعت الكتب الجامعية وكنوز العلم الواسعة في مُلتقًى واحد. وفي هذه الساحة نرحّب بكم أجمل ترحيب.<br><br><b>بارك الله لكم في رحلة طلب العلم.</b>",name:"حسن أحمد",dept:"قسم الفقه والدراسات الإسلامية",uni:"الجامعة الإسلامية العربية",aff:"المنتسبة: مدرسة دار النجاة الصديقية الكاملة",next:"الصفحة التالية",install:"تثبيت كتطبيق",ios:"على iPhone: من زر المشاركة في Safari اختاروا «إضافة إلى الشاشة الرئيسية».",levelT:"أي مرحلة دراسية تريدون؟",honours:"البكالوريوس",masters:"الماجستير",yearT:"اختاروا السنة",coursesT:"المقررات",code:"الرمز",credit:"الساعات",sy:"المنهج",ds:"توزيع الدرجات",bkT:"الكتب والمراجع",mk:"الدرجة",hr:"ساعات الدراسة",soon:"قريبًا",pdf:"ملف PDF قريبًا",booksT:"قائمة الكتب",noBooks:"قائمة الكتب قريبًا.",read:"اقرأ على الإنترنت",dl:"تحميل",theme:"المظهر",home:"البداية",yrs:["السنة الأولى","السنة الثانية","السنة الثالثة","السنة الرابعة"],my:"سنة الماجستير",nc:n=>n+" مقررات",srch:"ابحث عن كتاب أو مؤلف أو مقرر…",sres:"نتائج البحث",none:"لم يُعثر على شيء.",crs:"مقررات",bks:"كتب",mine:"قائمتي",favT:"الكتب المفضلة",recT:"آخر الكتب المفتوحة",noFav:"لا توجد كتب مفضلة. اضغطوا ☆ بجانب الكتاب.",noRec:"لم يُفتح أي كتاب بعد.",noticeT:"لوحة الإعلانات",noNotice:"لا توجد إعلانات.",notif:"تفعيل إشعارات الإعلانات الجديدة",notifOn:"الإشعارات مفعّلة",notifNote:"تظهر الإشعارات عند فتح الموقع أو التطبيق.",share:"مشاركة",copied:"تم نسخ الرابط",qr:"رمز QR",contactT:"التواصل وطلب الحذف",cOpts:["طلب حذف كتاب","الرابط لا يعمل","معلومة خاطئة","اقتراح"],cBook:"أي كتاب أو مقرر؟",cMsg:"رسالتكم",cSend:"إرسال عبر البريد",disc:"روابط الكتب في هذه المكتبة مُرتّبة لتسهيل القراءة. إن كان لديكم اعتراض على أي كتاب فأخبرونا وسنتصرف سريعًا.",print:"طباعة / PDF",th:{light:"فاتح",sepia:"ورقي"}}
 };
 const ls=(k,v)=>{try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}};
 const S={lang:ls("lang")||((navigator.language||"").slice(0,2)==="ar"?"ar":"bn"),theme:ls("theme")==="sepia"?"sepia":"light",size:+ls("size")||17};
@@ -77,6 +86,29 @@ const yn=(l,y)=>l==="masters"?T().my:T().yrs[y-1];
 const lv=l=>T()[l];
 const cr=a=>'<p class="cr">'+a.map(([t,h])=>h?'<a href="'+h+'">'+esc(t)+'</a>':esc(t)).join(" › ")+"</p>";
 let deferred=null,tab="sy";
+const maxN=()=>Math.max(0,...NOTICES.map(n=>n.id));
+const curR=()=>location.hash.replace(/^#\/?/,"").split("/")[0];
+const curQ=()=>{const p=location.hash.replace(/^#\/?/,"").split("/");if(p[0]!=="s"||!p[1])return"";try{return decodeURIComponent(p[1])}catch(e){return""}};
+const jl=k=>{try{return JSON.parse(ls(k)||"[]")}catch(e){return[]}};
+const favs=()=>jl("fav"),recs=()=>jl("rec");
+const norm=s=>String(s||"").toLowerCase().replace(/[\u064B-\u065F\u0670\u0640]/g,"").replace(/[أإآٱ]/g,"ا").replace(/ى/g,"ي").replace(/ة/g,"ه");
+let IDX=null;
+const idx=()=>{if(IDX)return IDX;IDX=[];for(const l in DATA)for(const y in DATA[l])DATA[l][y].forEach((c,i)=>(c.bk||[]).forEach(g=>g.items.forEach(b=>IDX.push({l,y,i,c,b,k:c.code+"|"+b.t,h:norm(b.t+" "+(b.w||"")+" "+c.n+" "+(c.a||"")+" "+c.code)}))));return IDX};
+const R=(h,x)=>x?'<a class="btn'+(h?"":" alt")+'" target="_blank" rel="noopener" href="'+esc(x)+'">':"";
+const bookRow=(b,c,e)=>{const t=T(),k=c.code+"|"+b.t,f=favs().includes(k);return'<div class="bk"><div><b dir="auto">'+esc(b.t)+'</b><div class="mu" dir="auto">'+esc(b.w||"")+"</div>"+(e?'<a class="mu" href="#/k/'+e.l+"/"+e.y+"/"+e.i+'" dir="auto">'+esc(c.n)+" · "+esc(c.code)+"</a>":"")+'</div><span><button class="st" data-fav="'+esc(k)+'" aria-pressed="'+f+'" aria-label="★">'+(f?"★":"☆")+"</button>"+(b.r?R(1,b.r)+t.read+"</a>":"")+(b.d?R(0,b.d)+t.dl+"</a>":"")+(b.r||b.d?"":'<span class="soon">'+t.pdf+"</span>")+"</span></div>"};
+const cc=(l,y,i,c)=>{const t=T();return'<a class="card" href="#/k/'+l+"/"+y+"/"+i+'"><b dir="auto">'+esc(c.n)+'</b><span class="mu" dir="auto" style="display:block">'+esc(c.a||"")+'</span><span class="chip">'+t.code+": "+esc(c.code||"—")+'</span><span class="chip">'+t.credit+": "+esc(c.cr||"—")+"</span></a>"};
+function sview(q){const t=T(),w=norm(q).split(/\s+/).filter(Boolean);
+  const ok=h=>w.length&&w.every(x=>h.includes(x));const cs=[];
+  for(const l in DATA)for(const y in DATA[l])DATA[l][y].forEach((c,i)=>{if(ok(norm(c.n+" "+(c.a||"")+" "+c.code)))cs.push([l,y,i,c])});
+  const bs=idx().filter(e=>ok(e.h));
+  return["الفقه",cr([[t.home,"#/level"],[t.sres]])+'<h2 dir="auto">'+esc(q)+'</h2><p class="mu">'+num(cs.length)+" "+t.crs+" · "+num(bs.length)+" "+t.bks+"</p>"+(cs.length?"<h3>"+t.crs+'</h3><div class="grid">'+cs.slice(0,30).map(x=>cc(...x)).join("")+"</div>":"")+(bs.length?"<h3>"+t.bks+"</h3>"+bs.slice(0,100).map(e=>bookRow(e.b,e.c,e)).join("")+(bs.length>100?'<p class="mu">…</p>':""):"")+(!cs.length&&!bs.length?'<p class="note">'+t.none+"</p>":"")]}
+function myview(){const t=T(),I=idx(),row=k=>{const e=I.find(x=>x.k===k);return e?bookRow(e.b,e.c,e):""};const a=favs().map(row).join(""),b=recs().map(row).join("");
+  return["الفقه",cr([[t.home,"#/level"],[t.mine]])+"<h2>★ "+t.favT+"</h2>"+(a||'<p class="note">'+t.noFav+"</p>")+"<h2>"+t.recT+"</h2>"+(b||'<p class="note">'+t.noRec+"</p>")]}
+function nview(){const t=T(),L=S.lang;
+  return["اقرأ",cr([[t.home,"#/level"],[t.noticeT]])+"<h2>🔔 "+t.noticeT+"</h2>"+(NOTICES.length?NOTICES.slice().sort((a,b)=>b.id-a.id).map(n=>{const x=n[L]||n.bn;return'<div class="nt"><b dir="auto">'+esc(x.t)+'</b> <span class="mu">'+esc(n.date)+'</span><p dir="auto">'+esc(x.b)+"</p></div>"}).join(""):'<p class="note">'+t.noNotice+"</p>")+notifBtn()]}
+function notifBtn(){const t=T();if(typeof Notification==="undefined")return"";return Notification.permission==="granted"&&ls("notif")==="1"?'<p class="mu">✓ '+t.notifOn+"</p>":'<button class="btn alt" data-notif="1">'+t.notif+'</button><p class="mu">'+t.notifNote+"</p>"}
+function foot(){const t=T(),c=SITE.form||SITE.email;
+  $("#ft").innerHTML='<div class="fb"><button class="pl" data-share="1">'+t.share+'</button><button class="pl" data-qr="1">'+t.qr+"</button>"+(c?'<button class="pl" data-cform="1">'+t.contactT+"</button>":"")+'</div><div id="qrb" hidden><img id="qri" alt="QR" width="180" height="180"></div>'+(SITE.email&&!SITE.form?'<div id="cfb" hidden><form id="cf"><select name="s">'+t.cOpts.map(o=>"<option>"+o+"</option>").join("")+'</select><input name="b" placeholder="'+esc(t.cBook)+'"><textarea name="m" rows="4" placeholder="'+esc(t.cMsg)+'" required></textarea><button class="btn">'+t.cSend+"</button></form></div>":"")+'<p class="mu">'+t.disc+"</p>"}
 
 function apply(){
   const d=document.documentElement;
@@ -85,44 +117,65 @@ function apply(){
 }
 function head(){
   const t=T();
-  $("#top").innerHTML='<div class="hd"><div><a class="logo" href="#/">'+esc(t.t)+'</a><div class="sub">'+esc(t.sub)+'</div></div><div class="ct">'+
+  $("#top").innerHTML='<div class="hd"><div><a class="logo" href="#/">'+esc(t.t)+'</a><div class="subt">'+esc(t.sub)+'</div></div><div class="ct">'+
   ["bn","ar"].map(l=>'<button class="pl" data-lang="'+l+'" aria-pressed="'+(S.lang===l)+'">'+(l==="bn"?"বাংলা":"العربية")+'</button>').join("")+
   '<select id="th" aria-label="'+t.theme+'">'+Object.keys(t.th).map(k=>'<option value="'+k+'"'+(S.theme===k?" selected":"")+'>'+t.th[k]+'</option>').join("")+'</select>'+
   '<button class="pl" id="fm" aria-label="A-">A−</button><button class="pl" id="fp" aria-label="A+">A+</button>'+
-  "</div></div>";
+  '<a class="pl" href="#/my">★ '+t.mine+'</a><a class="pl" href="#/notice" aria-label="'+esc(t.noticeT)+'">🔔'+(maxN()>+ls("seen")?'<i class="dot"></i>':"")+"</a>"+
+  '</div></div><div class="hd noprint" style="padding-top:0"><form id="sf" class="sf" role="search"><input type="search" name="q" value="'+esc(curQ())+'" placeholder="'+esc(t.srch)+'" aria-label="'+esc(t.srch)+'"><button class="pl" aria-label="search">🔍</button></form></div>';
 }
 function views(p){
   const t=T(),r=p[0]||"welcome";
   if(r==="welcome")return["اقرأ",'<section class="hero"><h1>'+t.hi+'</h1><p class="lead">'+t.msg+'</p><div class="who"><b>'+t.name+"</b><br>"+t.dept+"<br>"+t.uni+"<br>"+t.aff+'</div><a class="btn" href="#/level">'+t.next+"</a>"+(deferred?'<button class="btn alt" id="inst">'+t.install+"</button>":"")+'<p class="mu">'+t.ios+"</p></section>"];
   if(r==="level")return["الفقه",cr([[t.home,"#/"],[t.levelT]])+'<h2>'+t.levelT+'</h2><div class="grid">'+["honours","masters"].map(l=>'<a class="card" href="#/y/'+l+'"><b>'+t[l]+'</b><span class="chip">'+t.nc(num(Object.values(DATA[l]).reduce((a,c)=>a+c.length,0)))+"</span></a>").join("")+"</div>"];
+  if(r==="s")return sview(curQ());
+  if(r==="my")return myview();
+  if(r==="notice")return nview();
   const l=p[1];if(!DATA[l])return views(["level"]);
   if(r==="y")return["الدرس",cr([[t.home,"#/level"],[lv(l)]])+"<h2>"+t.yearT+'</h2><div class="grid">'+Object.keys(DATA[l]).map(y=>'<a class="card" href="#/c/'+l+"/"+y+'"><b>'+yn(l,y)+'</b><span class="chip">'+t.nc(num(DATA[l][y].length))+"</span></a>").join("")+"</div>"];
   const y=p[2],cs=DATA[l][y];if(!cs)return views(["y",l]);
   if(r==="c")return["المقرر",cr([[t.home,"#/level"],[lv(l),"#/y/"+l],[yn(l,y)]])+"<h2>"+t.coursesT+'</h2><div class="grid">'+cs.map((c,i)=>'<a class="card" href="#/k/'+l+"/"+y+"/"+i+'"><b dir="auto">'+esc(c.n)+'</b><span class="mu" dir="auto" style="display:block">'+esc(c.a||"")+'</span><span class="chip">'+t.code+": "+esc(c.code||"—")+'</span><span class="chip">'+t.credit+": "+esc(c.cr||"—")+"</span></a>").join("")+"</div>"];
   const c=cs[+p[3]];if(!c)return views(["c",l,y]);
-  const R=(h,x)=>x?'<a class="btn'+(h?"":" alt")+'" target="_blank" rel="noopener" href="'+esc(x)+'">':"";
+  if(tab==="bk"&&!c.bk.length)tab="sy";
   const sec=tab==="ds"?'<table class="tbl">'+c.dist.map(r=>'<tr><td dir="auto">'+esc(r[0])+'</td><td dir="auto">'+esc(r[1]||"")+"</td></tr>").join("")+"</table>"
-   :tab==="bk"?(c.bk.length?c.bk.map(g=>'<h3 dir="auto">'+esc(g.h)+"</h3>"+g.items.map(b=>'<div class="bk"><div><b dir="auto">'+esc(b.t)+'</b><div class="mu" dir="auto">'+esc(b.w||"")+"</div></div><span>"+(b.r?R(1,b.r)+t.read+"</a>":"")+(b.d?R(0,b.d)+t.dl+"</a>":"")+"</span></div>").join("")).join(""):'<p class="note">'+t.noBooks+"</p>")
+   :tab==="bk"?c.bk.map(g=>'<h3 dir="auto">'+esc(g.h)+"</h3>"+g.items.map(b=>bookRow(b,c)).join("")).join("")
    :(c.syl.length?c.syl.map(x=>'<p class="sy'+(x.startsWith("• ")?" sub":"")+'" dir="auto">'+esc(x)+"</p>").join(""):'<p class="note">'+t.soon+"</p>");
-  return["الكتاب",cr([[t.home,"#/level"],[lv(l),"#/y/"+l],[yn(l,y),"#/c/"+l+"/"+y],[c.n]])+'<h2 dir="auto">'+esc(c.n)+'</h2><p class="mu" dir="auto">'+esc(c.a||"")+'</p><span class="chip">'+t.code+": "+esc(c.code||"—")+'</span><span class="chip">'+t.mk+": "+esc(c.m||"—")+'</span><span class="chip">'+t.credit+": "+esc(c.cr||"—")+'</span><span class="chip">'+t.hr+": "+esc(c.h||"—")+'</span><div class="tabs">'+[["sy",t.sy],["ds",t.ds],["bk",t.bkT]].map(([k,v])=>'<button class="pl" data-tab="'+k+'" aria-pressed="'+(tab===k)+'">'+v+"</button>").join("")+"</div>"+sec];
+  const tabs=[["sy",t.sy],["ds",t.ds]].concat(c.bk.length?[["bk",t.bkT]]:[]);
+  const ch=(a,v)=>'<span class="chip">'+a+": "+esc(v||"—")+"</span>";
+  return["الكتاب",cr([[t.home,"#/level"],[lv(l),"#/y/"+l],[yn(l,y),"#/c/"+l+"/"+y],[c.n]])+'<h2 dir="auto">'+esc(c.n)+'</h2><p class="mu" dir="auto">'+esc(c.a||"")+"</p>"+ch(t.code,c.code)+ch(t.mk,c.m)+ch(t.credit,c.cr)+ch(t.hr,c.h)+'<div class="tabs noprint">'+tabs.map(([k,v])=>'<button class="pl" data-tab="'+k+'" aria-pressed="'+(tab===k)+'">'+v+"</button>").join("")+'<button class="pl" data-print="1">'+t.print+"</button></div>"+sec];
 }
-function render(){
+function render(ns){
   const p=location.hash.replace(/^#\/?/,"").split("/").filter(Boolean),r=p[0]||"welcome";
   const [w,h]=views(p);
-  $("#bg").dataset.w=w;$("#app").innerHTML=h;window.scrollTo(0,0);
+  $("#bg").dataset.w=w;$("#app").innerHTML=h;
+  if(r==="notice"){ls("seen",maxN());head()}
+  foot();if(ns!==true)window.scrollTo(0,0);
 }
 function all(){apply();head();render()}
 document.addEventListener("click",async e=>{
-  const b=e.target.closest("[data-lang],[data-tab],#fm,#fp,#inst");if(!b)return;
+  const a=e.target.closest(".bk a.btn");
+  if(a){const f=a.closest(".bk").querySelector("[data-fav]");if(f){const k=f.dataset.fav;ls("rec",JSON.stringify([k,...recs().filter(x=>x!==k)].slice(0,8)))}}
+  const b=e.target.closest("[data-lang],[data-tab],[data-fav],[data-print],[data-share],[data-qr],[data-cform],[data-notif],#fm,#fp,#inst");if(!b)return;
+  if(b.dataset.fav){const k=b.dataset.fav,f=favs(),on=!f.includes(k);ls("fav",JSON.stringify(on?[k,...f]:f.filter(x=>x!==k)));b.textContent=on?"★":"☆";b.setAttribute("aria-pressed",on);if(curR()==="my")render(true);return}
+  if(b.dataset.print){window.print();return}
+  if(b.dataset.share){const u=SITE.url||location.href.split("#")[0];if(navigator.share)navigator.share({title:T().t,url:u}).catch(()=>{});else if(navigator.clipboard)navigator.clipboard.writeText(u).then(()=>alert(T().copied));return}
+  if(b.dataset.qr){const i=$("#qri"),w=$("#qrb");if(!i.getAttribute("src"))i.src="https://api.qrserver.com/v1/create-qr-code/?size=360x360&margin=8&data="+encodeURIComponent(SITE.url);w.hidden=!w.hidden;return}
+  if(b.dataset.cform){if(SITE.form)window.open(SITE.form,"_blank","noopener");else{const w=$("#cfb");w.hidden=!w.hidden}return}
+  if(b.dataset.notif){if(typeof Notification!=="undefined")Notification.requestPermission().then(p=>{if(p==="granted"){ls("notif","1");ls("notified",maxN());render(true)}});return}
   if(b.dataset.lang){S.lang=b.dataset.lang;ls("lang",S.lang);return all()}
   if(b.dataset.tab){tab=b.dataset.tab;return render()}
   if(b.id==="fm"||b.id==="fp"){S.size=Math.min(24,Math.max(14,S.size+(b.id==="fp"?1:-1)));ls("size",S.size);return apply()}
   if(b.id==="inst"&&deferred){deferred.prompt();deferred=null;return render()}
 });
+document.addEventListener("submit",e=>{
+  if(e.target.id==="sf"){e.preventDefault();const q=e.target.q.value.trim();if(q)location.hash="#/s/"+encodeURIComponent(q)}
+  if(e.target.id==="cf"){e.preventDefault();const f=e.target;location.href="mailto:"+SITE.email+"?subject="+encodeURIComponent(f.s.value+" — "+T().t)+"&body="+encodeURIComponent(f.b.value+"\n\n"+f.m.value+"\n\n"+location.href)}
+});
 document.addEventListener("change",e=>{if(e.target.id==="th"){S.theme=e.target.value;ls("theme",S.theme);apply()}});
 window.addEventListener("hashchange",render);
 window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferred=e;render()});
 if("serviceWorker" in navigator)window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
+if(ls("notif")==="1"&&typeof Notification!=="undefined"&&Notification.permission==="granted"&&maxN()>+(ls("notified")||0)&&"serviceWorker" in navigator){const n=NOTICES.slice().sort((a,b)=>b.id-a.id)[0],x=n[S.lang]||n.bn;navigator.serviceWorker.ready.then(r=>r.showNotification(x.t,{body:x.b,icon:"icon-192.png",tag:"notice"+n.id})).catch(()=>{});ls("notified",n.id)}
 all();
 </script>
 </body>
