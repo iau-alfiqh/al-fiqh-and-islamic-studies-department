@@ -246,7 +246,7 @@ const num=n=>new Intl.NumberFormat(S.lang==="ar"?"ar":(S.lang==="en"?"en":"bn-BD
 const yn=(l,y)=>l==="masters"?T().my:T().yrs[y-1];
 const lv=l=>T()[l];
 const cr=a=>'<p class="cr">'+a.map(([t,h])=>h?'<a href="'+h+'">'+esc(t)+'</a>':esc(t)).join(" › ")+"</p>";
-let deferred=null,tab="sy";
+let deferred=null,tab="bk";
 const maxN=()=>Math.max(0,...NOTICES.map(n=>n.id));
 const curR=()=>location.hash.replace(/^#\/?/,"").split("/")[0];
 const curQ=()=>{const p=location.hash.replace(/^#\/?/,"").split("/");if(p[0]!=="s"||!p[1])return"";try{return decodeURIComponent(p[1])}catch(e){return""}};
@@ -345,5 +345,6 @@ if("serviceWorker" in navigator)window.addEventListener("load",()=>navigator.ser
 if(ls("notif")==="1"&&typeof Notification!=="undefined"&&Notification.permission==="granted"&&maxN()>+(ls("notified")||0)&&"serviceWorker" in navigator){const n=NOTICES.slice().sort((a,b)=>b.id-a.id)[0],x=n[S.lang]||n.bn;navigator.serviceWorker.ready.then(r=>r.showNotification(x.t,{body:x.b,icon:"icon-192.png",tag:"notice"+n.id})).catch(()=>{});ls("notified",n.id)}
 all();
 </script>
+<script src="features.js"></script>
 </body>
 </html>
